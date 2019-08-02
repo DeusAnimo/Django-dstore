@@ -6,14 +6,26 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
+from django.db.models import Q
 from .models import Item, OrderItem, Order, BillingAddress, Category
 from .forms import CheckoutForm
+
 
 
 class HomeView(ListView):
     model = Item
     paginate_by = 4
     template_name = 'home.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('s_field')
+        if query:
+            object_list = self.model.objects.filter(
+                Q(title__icontains=query) | Q(description__icontains=query)
+            )
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
 
 class OrderSummaryView(LoginRequiredMixin, View):

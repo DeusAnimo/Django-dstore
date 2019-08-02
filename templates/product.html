@@ -23,14 +23,15 @@
 
           <!--Content-->
           <div class="p-4">
-
+            <h3>{{ object.title }}</h3>
             <div class="mb-3">
-              <a href="">
-                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
+              <a href="{{ item.category.get_absolute_url }}">
+                <span class="badge purple mr-1">{{ object.category }}</span>
               </a>
             </div>
 
             <p class="lead">
+              Цена:
               {% if object.discount_price %}
               <span class="mr-1">
                 <del>${{ object.price }}</del>
@@ -41,24 +42,20 @@
               {% endif %}
             </p>
 
-            <p class="lead font-weight-bold">Описание</p>
+            <p class="lead font-weight-bold">Описание товара</p>
+
+            <hr>
 
             <p>{{ object.description }}</p>
 
-            <!--<form class="d-flex justify-content-left">-->
-              <!--&lt;!&ndash; Default input &ndash;&gt;-->
-              <!--<input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">-->
-              <!--<button class="btn btn-primary btn-md my-0 p" type="submit">-->
-                <!--Add to cart-->
-                <!--<i class="fas fa-shopping-cart ml-1"></i>-->
-              <!--</button>-->
+            <hr>
 
             <!--</form>-->
-            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md mt-4">
                 Добавить в корзину
                 <i class="fas fa-shopping-cart ml-1"></i>
             </a>
-            <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
+            <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md mt-4">
                 Удалить из корзины
             </a>
 
@@ -79,7 +76,7 @@
         <!--Grid column-->
         <div class="col-md-6 text-center">
 
-          <h4 class="my-4 h4">Additional information</h4>
+          <h4 class="my-4 h4">Рекомендуем следущие товары</h4>
 
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
             voluptates,
@@ -97,7 +94,7 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-12 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+          <img src="https://i.allo.ua/media/Rich_Review/xiaomi_redmi_7/phone_01.png" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -105,7 +102,7 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+          <img src="https://snr.ru/cdn/article/493/ASUS-TUF-Gaming-FX504_Black-Matter_Product-Photo-16_Light_Gears-of-War-4-Wallpaper.jpg" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -113,7 +110,7 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+          <img src="https://images.ua.prom.st/1161070099_w640_h640_detskie-naushniki-serii.jpg" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
